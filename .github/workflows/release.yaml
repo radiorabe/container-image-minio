@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+
+jobs:
+  release-container:
+    uses: radiorabe/actions/.github/workflows/release-container.yaml@v0.11.0
+    with:
+      image: ghcr.io/radiorabe/minio
+      name: minio
+      display-name: RaBe Minio on UBI9
+      tags: minimal rhel9 ubi9 rabe minio
+      cosign-base-image-only: true
