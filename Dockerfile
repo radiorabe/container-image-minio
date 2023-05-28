@@ -9,9 +9,7 @@ COPY LICENSE /licenses/
 
 ENV PATH=/opt/bin:$PATH
 
-RUN    curl -L -O https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
-    && rpm -ivh ./epel-release-*.noarch.rpm \
-    && rm ./epel-release-*.noarch.rpm \
+RUN    microdnf install -y epel-release \
     && microdnf install -y \
          shadow-utils \
          minisign \
