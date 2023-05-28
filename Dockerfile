@@ -1,5 +1,5 @@
 FROM quay.io/minio/minio:RELEASE.2023-05-18T00-05-36Z AS source
-FROM ghcr.io/radiorabe/ubi9-minimal:0.3.0 AS app
+FROM ghcr.io/radiorabe/ubi9-minimal:0.4.0 AS app
 
 COPY --from=source /opt /opt
 COPY --from=source /usr/bin/verify-minio.sh /usr/bin/verify-minio.sh
@@ -9,9 +9,7 @@ COPY LICENSE /licenses/
 
 ENV PATH=/opt/bin:$PATH
 
-RUN    curl -L -O https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
-    && rpm -ivh ./epel-release-*.noarch.rpm \
-    && rm ./epel-release-*.noarch.rpm \
+RUN    microdnf install -y epel-release \
     && microdnf install -y \
          shadow-utils \
          minisign \
