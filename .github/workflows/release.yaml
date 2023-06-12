@@ -17,3 +17,5 @@ jobs:
       display-name: RaBe Minio on UBI9
       tags: minimal rhel9 ubi9 rabe minio
       cosign-base-image-only: true
+  mkdocs:
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.12.0
