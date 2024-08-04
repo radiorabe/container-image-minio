@@ -17,6 +17,7 @@ RUN    microdnf install -y epel-release \
          -c "Default Application User" default \
     && microdnf remove -y \
          libsemanage \
+         policycoreutils \
          shadow-utils \
     && microdnf clean all
 
