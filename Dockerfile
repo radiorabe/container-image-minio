@@ -1,4 +1,4 @@
-FROM quay.io/minio/minio:RELEASE.2024-11-07T00-52-20Z AS source
+FROM quay.io/minio/minio:RELEASE.2024-12-13T22-19-12Z AS source
 FROM ghcr.io/radiorabe/ubi9-minimal:0.8.0 AS app
 
 COPY --from=source /usr/bin/minio /usr/bin/minio
