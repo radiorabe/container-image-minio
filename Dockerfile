@@ -1,5 +1,5 @@
-FROM quay.io/minio/minio:RELEASE.2025-03-12T18-04-18Z AS source
-FROM ghcr.io/radiorabe/ubi9-minimal:0.8.2 AS app
+FROM quay.io/minio/minio:RELEASE.2025-04-08T15-41-24Z AS source
+FROM ghcr.io/radiorabe/ubi9-minimal:0.8.3 AS app
 
 COPY --from=source /usr/bin/minio /usr/bin/minio
 COPY --from=source /usr/bin/mc /usr/bin/mc
@@ -17,7 +17,6 @@ RUN    microdnf install -y epel-release \
          -c "Default Application User" default \
     && microdnf remove -y \
          libsemanage \
-         policycoreutils \
          shadow-utils \
     && microdnf clean all
 
