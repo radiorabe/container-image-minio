@@ -1,5 +1,7 @@
 # RaBe MinIO Image
 
+> ⚠️ We are curently working on finding a replacement for MinIO since it's stewards decided to no longer be an open source first company and moved the project to maintenance mode.
+
 [MinIO](https://min.io) container image based on [RaBe UBI9 Minimal](https://github.com/radiorabe/container-image-ubi9-minimal)
 with a `minio` binary from the official `quay.io/minio/minio` image.
 
